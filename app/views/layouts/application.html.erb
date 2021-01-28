@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <h1><%= current_user.username %> current_user </h1>
+    <% end %>
     <%= yield %>
   </body>
 </html>

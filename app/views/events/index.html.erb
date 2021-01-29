@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+<% @events.each do |event| %>
+  <p><%= event.date %></p>
+  <p><%= event.description %></p> <br>
+<% end %>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>

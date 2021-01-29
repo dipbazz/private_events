@@ -4,6 +4,9 @@
 <p><%= @event.description %></p>
 <p><%= @event.creator.username %></p>
 list of attendees
+<ul>
 <% @event.attendees.each do |attendee| %>
-  <%= attendee%>
-  <% end %>
+  <li><%= attendee.username %>sk j</li>
+<% end %>
+
+</ul>

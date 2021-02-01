@@ -1,12 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Events</h1>
+<h4>Upcoming Events</h4>
+<% @events.upcoming_events.each do |event| %>
 
-<% @events.each do |event| %>
+  <p><%= event.date %></p>
+  <p><%= event.description %></p> <br>
+<% end %>
+<h4>Previous Events</h4>
+<% @events.previous_events.each do |event| %>
+
   <p><%= event.date %></p>
   <p><%= event.description %></p> <br>
 <% end %>
 
-<br>
+
 
 <%= link_to 'New Event', new_event_path %>

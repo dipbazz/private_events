@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
-<% @events.each do |event| %>
-<h4>event</h4>
+<% @user.upcoming_events.each do |event| %>
+<h4>Upcoming events</h4>
   <ul>
     <li>
       <p><%= event.description %></p>
@@ -8,5 +8,17 @@
     </li>
   </ul>
 <% end %>
+
+<% @user.previous_events.each do |event| %>
+<h4>Previous events</h4>
+  <ul>
+    <li>
+      <p><%= event.description %></p>
+      <small><%= event.date %></small>
+    </li>
+  </ul>
+<% end %>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

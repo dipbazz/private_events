@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Users</h1>
+<% if user_signed_in? %>
+  <%= current_user.username%>
+  <% else %>
+  Your not logged in
+<% end %>
 

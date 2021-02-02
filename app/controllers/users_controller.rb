@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       session[:current_user_id] = @user.id
-      format.html { redirect_to @user, notice: 'You are logged in successfully.' }
+      format.html { redirect_to users_path, notice: 'You are logged in successfully.' }
       format.json { render :show, status: :created, location: @user }
     end
   end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def destroy
     session[:current_user_id] = nil
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'You are successfully logged out.' }
+      format.html { redirect_to users_path, notice: 'You are successfully logged out.' }
       format.json { head :no_content }
     end
   end

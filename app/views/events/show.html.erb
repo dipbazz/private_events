@@ -8,14 +8,17 @@
               <hr class="my-4">
               <h6>Created by:</h6>
               <p><%= @event.creator.username %></p>
-              <% if @event.attendees.exists? %>
                 <h3>List of Attendees</h3>
               <ul>
+              <% if attendees_exists? %>
                 <% @event.attendees.each do |attendee| %>
                   <li><%= attendee.username %></li>
                 <% end %>
+                <% else %>
+                <li>There are no attendees for this event</li>
+                <% end %>
               </ul>
-              <% end %>
+              
               
         </div>
     </div>

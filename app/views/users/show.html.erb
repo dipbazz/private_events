@@ -1,4 +1,15 @@
-<p id="notice"><%= notice %></p>
+
+<div class="container">
+
+  <div class="row">
+    <h2 class="col"> Created Events</h2>
+  </div>
+  <div class="row">
+    <% @created_events.each do |event| %>
+      <%= render 'events/event', event: event %>
+    <% end %>
+  </div>
+</div>
 
 <div class="container">
 
@@ -6,7 +17,7 @@
     <h2 class="col"> Upcoming Events</h2>
   </div>
   <div class="row">
-    <% @user.upcoming_events.each do |event| %>
+    <% @upcoming_events.each do |event| %>
       <%= render 'events/event', event: event %>
     <% end %>
   </div>
@@ -18,7 +29,7 @@
     <h2 class="col"> Previous Events</h2>
   </div>
   <div class="row">
-    <% @user.previous_events.each do |event| %>
+    <% @past_events.each do |event| %>
       <%= render 'events/event', event: event %>
     <% end %>
   </div>

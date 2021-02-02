@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   def authenticate_user!
     if user_signed_in?
-      return true
+      true
     else
       redirect_to new_user_path
     end

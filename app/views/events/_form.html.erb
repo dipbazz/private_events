@@ -11,13 +11,19 @@
     </div>
   <% end %>
 
-  <%= form.label :date %>
-  <%= form.date_field :date %>
+  <div class="form-group">
+    <%= form.label :date %>
+    <%= form.date_field :date, class: "form-control"%>
+  </div>
 
-  <%= form.label :description %>
-  <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary"%>
+      
+    
   </div>
 <% end %>

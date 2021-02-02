@@ -50,6 +50,7 @@
 
         <div class="float-right">
           <%if user_signed_in?%>
+            <%= link_to 'Profile', user_path(current_user), class: 'btn btn-outline-info'%>
             <%= link_to 'Logout', current_user, method: :delete, class: 'btn btn-outline-danger'%>
           <% else %>
             <%= link_to 'Login', new_user_path, class: 'btn btn-outline-primary'%>

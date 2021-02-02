@@ -1,12 +1,27 @@
-<h1>Event</h1>
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <div class="jumbotron">
+        <h1 class="display-4">Event</h1> 
+              <h2><%= @event.date %></h2>
+              <p class="lead"><%= @event.description %></p>
+              <hr class="my-4">
+              <h6>Created by:</h6>
+              <p><%= @event.creator.username %></p>
+              <% if @event.attendees.exists? %>
+                <h3>List of Attendees</h3>
+              <ul>
+                <% @event.attendees.each do |attendee| %>
+                  <li><%= attendee.username %></li>
+                <% end %>
+              </ul>
+              <% end %>
+              
+        </div>
+    </div>
+  </div>
+</div>
 
-<p><%= @event.date %></p>
-<p><%= @event.description %></p>
-<p><%= @event.creator.username %></p>
-list of attendees
-<ul>
-<% @event.attendees.each do |attendee| %>
-  <li><%= attendee.username %>sk j</li>
-<% end %>
 
-</ul>
+
+

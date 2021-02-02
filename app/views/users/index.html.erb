@@ -2,9 +2,3 @@
 
 <h1>Users</h1>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
-<% if user_signed_in? %>
-  <%= link_to 'Destroy User', current_user, method: :delete %>
-<% end %>

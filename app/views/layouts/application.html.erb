@@ -11,6 +11,57 @@
   </head>
 
   <body>
-    <%= yield %>
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert">
+      <%= notice %>
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-danger" role="alert">
+      <%= alert %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          Private events
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'New Event', new_event_path, class: "nav-link" %>
+            </li>
+          </ul>
+        </div>
+
+        <div class="float-right">
+          <%if user_signed_in?%>
+            <%= link_to 'Profile', user_path(current_user), class: 'btn btn-outline-info'%>
+            <%= link_to 'Logout', current_user, method: :delete, class: 'btn btn-outline-danger'%>
+          <% else %>
+            <%= link_to 'Login', new_user_path, class: 'btn btn-outline-primary'%>
+          <%end%>
+        </div>
+
+      </div>
+    </nav>
+
+    <div class="mt-4">
+      <%= yield %>
+    </div>
   </body>
 </html>

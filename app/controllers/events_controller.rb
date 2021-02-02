@@ -15,9 +15,7 @@ class EventsController < ApplicationController
     user = User.first
     @event = user.events.build(event_params)
 
-    if @event.save
-      redirect_to @event
-    end
+    redirect_to @event if @event.save
   end
 
   private
@@ -25,5 +23,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:date, :description)
   end
-
 end

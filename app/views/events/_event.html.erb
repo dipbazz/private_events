@@ -5,6 +5,9 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= event.creator.username %></h6>
       <p class="card-text"><%= event.description %></p>
       <%= link_to 'View detail', event, class: 'card-link' %>
+      <% if user_signed_in? and !current_user.attended_events.where(id: event.id).exists? %>
+        <%= link_to 'Join Event', attendences_path(event: event), method: :post, class: "card-link text-info" %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Events</h1>
-<h4>Upcoming Events</h4>
-<% @events.upcoming_events.each do |event| %>
-
-  <p><%= event.date %></p>
-  <p><%= event.description %></p> <br>
-<% end %>
-<h4>Previous Events</h4>
-<% @events.previous_events.each do |event| %>
-
-  <p><%= event.date %></p>
-  <p><%= event.description %></p> <br>
-<% end %>
 
 
+<div class="container">
 
-<%= link_to 'New Event', new_event_path %>
+  <div class="row">
+    <h2 class="col"> Upcoming Events</h2>
+  </div>
+  <div class="row">
+    <% @events.upcoming_events.each do |event| %>
+      <%= render 'event', event: event %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container mt-4">
+
+  <div class="row">
+    <h2 class="col"> Previous Events</h2>
+  </div>
+  <div class="row">
+    <% @events.previous_events.each do |event| %>
+      <%= render 'event', event: event %>
+    <% end %>
+  </div>
+</div>
+
